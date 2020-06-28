@@ -4,6 +4,8 @@ A simple utility to make printable game cards from a CSV spreadsheet, and some t
 
 ## Example
 
+This repo includes a small example game called [All Your Base](http://www.dvorakgame.co.uk/index.php/All_Your_Base_deck) designed by [Kevan](http://www.dvorakgame.co.uk/index.php/User:Kevan) as part of the game [Dvorak](https://boardgamegeek.com/boardgame/9010/dvorak). That game is not part of this software, and may be subject to copyright.
+
 Starting with [this spreadsheet](example/all_your_base.csv), and a couple of SVG templates, like [this one](example/action.svg), CardMaker will produce images like this:
 
 ![Example Image 1](example/output/ALL%20YOUR%20BASE%20ARE%20BELONG%20TO%20US.png)
