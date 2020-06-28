@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="action.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 69.159 94.559002"
+   height="3.7227952in"
+   width="2.7227952in">
+  <defs
+     id="defs2">
+    <rect
+       x="7.8211113"
+       y="24.449106"
+       width="27.169927"
+       height="54.339854"
+       id="rect1424" />
+    <rect
+       id="rect837"
+       height="17.652166"
+       width="26.091598"
+       y="23.03627"
+       x="16.732847" />
+    <rect
+       x="16.732847"
+       y="23.03627"
+       width="38.822556"
+       height="26.401321"
+       id="rect849" />
+  </defs>
+  <sodipodi:namedview
+     inkscape:window-maximized="0"
+     inkscape:window-y="0"
+     inkscape:window-x="53"
+     inkscape:window-height="1024"
+     inkscape:window-width="1624"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:snap-object-midpoints="true"
+     fit-margin-right="0.1"
+     fit-margin-bottom="0.1"
+     fit-margin-left="0.1"
+     fit-margin-top="0.1"
+     inkscape:snap-page="true"
+     inkscape:bbox-nodes="true"
+     inkscape:bbox-paths="true"
+     inkscape:snap-bbox="true"
+     inkscape:pagecheckerboard="true"
+     units="in"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="176.08835"
+     inkscape:cx="131.01006"
+     inkscape:zoom="2.4345238"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(2.8295,2.8295)"
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <rect
+       ry="4"
+       rx="4"
+       y="0"
+       x="0"
+       height="88.900002"
+       width="63.5"
+       id="rect10"
+       style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+    <rect
+       style="mix-blend-mode:multiply;fill:#ff8080;fill-opacity:1;stroke:none;stroke-width:1.00896;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect853"
+       width="64.5"
+       height="11.628728"
+       x="-0.5"
+       y="29.639793" />
+    <text
+       transform="matrix(2.2449993,0,0,2.2449993,-35.102309,-50.106053)"
+       y="0"
+       x="17.224638"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.14279px;line-height:1.25;font-family:Impact;-inkscape-font-specification:Impact;text-align:center;white-space:pre;shape-inside:url(#rect837);fill:#000000;fill-opacity:1;stroke:none;"
+       id="text835"
+       xml:space="preserve"><tspan
+         x="21.642054"
+         y="26.183301"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.14279px;font-family:Impact;-inkscape-font-specification:Impact;text-align:center;text-anchor:middle">ALL YOUR BASE ARE BELONG TO US</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text847"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.95274px;line-height:1.25;font-family:Cambria;-inkscape-font-specification:Cambria;text-align:start;white-space:pre;shape-inside:url(#rect849);fill:#000000;fill-opacity:1;stroke:none;"
+       x="-0.69398028"
+       y="0"
+       transform="matrix(1.4336942,0,0,1.4336942,-20.164976,11.807343)"><tspan
+         x="16.732422"
+         y="25.702938"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.95274px;font-family:Cambria;-inkscape-font-specification:Cambria;text-align:start;text-anchor:start">If you control at least three Bases, and your opponents control none, you win the game.</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text1422"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect1424);fill:#000000;fill-opacity:1;stroke:none;" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:Aldhabi;-inkscape-font-specification:Aldhabi;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="21.217085"
+       y="37.508289"
+       id="text857"><tspan
+         sodipodi:role="line"
+         id="tspan855"
+         x="21.217085"
+         y="37.508289"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Aldhabi;-inkscape-font-specification:Aldhabi;stroke-width:0.264583">ACTION</tspan></text>
+  </g>
+</svg>
