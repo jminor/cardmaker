@@ -144,9 +144,16 @@ if __name__ == "__main__":
 
         svg = fill_template(template, row)
 
-        svg_path = os.path.join(args.output, name) + '.svg'
+        for index in range(copies):
+            if copies == 1:
+                copy_number = ""
+            else:
+                copy_number = "_{}".format(index+1)
+            svg_path = "{}{}.svg".format(
+                os.path.join(args.output, name),
+                copy_number
+            )
         save_svg(svg, svg_path)
-
         svg_paths.append(svg_path)
 
     print("Rendering SVG to PNG...")

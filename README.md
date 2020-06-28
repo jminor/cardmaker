@@ -55,7 +55,7 @@ The `Card Name` column defines the output filename (with a `.png` or `.svg` exte
 
 The `Template` column determines which template SVG will be used for that card. You can use a single template for all your cards, or different ones for different types of cards. The example uses 4 templates for 4 types of outputs (rules, back, thing, action).
 
-The `Copies` column determines how many copies of the identical image will be produced when printed. (NOT IMPLEMENTED YET)
+The `Copies` column determines how many copies of the identical image will be produced when printed. If more than one copy is output, duplicates will have `_2`, `_3`, etc. appended to their filename.
 
 Any other columns you include can be used to fill in the template SVG(s) you provide. If a column is not used in a template, it is ignored - so you can have loads of columns for other purposes.
 
