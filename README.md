@@ -9,6 +9,8 @@ This repo includes a small example game called [All Your Base](http://www.dvorak
 Starting with [this spreadsheet](example/all_your_base.csv), and a couple of SVG templates, like [this one](example/action.svg), CardMaker will produce images like this:
 
 ![Example Image 1](example/output/ALL%20YOUR%20BASE%20ARE%20BELONG%20TO%20US.png)
+![Example Image 2](example/output/Setup.png)
+
 (in [PNG](example/output/ALL%20YOUR%20BASE%20ARE%20BELONG%20TO%20US.png) and [SVG](example/output/ALL%20YOUR%20BASE%20ARE%20BELONG%20TO%20US.svg) formats)
 
 ## Requirements
