@@ -89,7 +89,7 @@ Any column in your spreadsheet can be used anywhere in your template. This can i
 
 ## Symbols & Images
 
-You can use fonts with decorative symbols, like Wingdings, or Unicode symbols like these: ♠♥♦♣♔♕♖♗♘♙♚♛♜♝♞♟︎, and maybe even Emoji (untested). However, some Unicode symbols don't seem to work. Also your results may depend on which font or platform you are using.
+You can use fonts with decorative symbols, like Wingdings, or Unicode symbols like these: ♠♥♦♣, ♔♕♖♗♘♙, and even emoji 😃😭😈🍜 (see: [Symbol Test](example/output/Symbol%20Test.png)). However, they will all be a single color, and your results may depend on which font or platform you are using.
 
 If you are looking for SVG icons, then these are excellent resources:
 - https://game-icons.net/
