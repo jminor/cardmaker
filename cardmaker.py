@@ -19,12 +19,6 @@ for path in default_inkscape_paths:
     if os.path.exists(path):
         default_inkscape_path = path
 
-# foo = OrderedDict()
-# foo['hey'] = 'Hello'
-# foo['bye'] = 'Goodbye'
-# assert(list(foo.values())[0] == 'Hello')
-# assert(list(foo.values())[1] == 'Goodbye')
-
 required_columns = [
     'Card Name',
     'Template',
@@ -48,6 +42,9 @@ def load_templates(templates_names):
         template = load_template(template_name)
         templates[template_name] = template
 
+assert(escape("a&b") == "a&amp;b")
+assert(unescape("a&amp;b") == "a&b")
+
 def read_table(path):
     with open(path, "r", newline='', encoding='utf-8') as input_file:
         data = list(csv.reader(input_file))
@@ -57,8 +54,13 @@ def read_table(path):
         if column not in header:
             raise Exception("Required column '{}' not found.".format(column))
 
+    # if a cell has an & or other reserved SVG token, we need
+    # to escape it.
+    def prep(row):
+        return [escape(cell) for cell in row]
+
     # turn the table into a list of dictionaries, indexed by column name
-    rows = [OrderedDict(zip(header, row)) for row in data[1:]]
+    rows = [OrderedDict(zip(header, prep(row))) for row in data[1:]]
     return rows
 
 def fill_template(template, row):
@@ -153,8 +155,8 @@ if __name__ == "__main__":
                 os.path.join(args.output, name),
                 copy_number
             )
-        save_svg(svg, svg_path)
-        svg_paths.append(svg_path)
+            save_svg(svg, svg_path)
+            svg_paths.append(svg_path)
 
     print("Rendering SVG to PNG...")
 
