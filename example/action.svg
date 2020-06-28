@@ -36,6 +36,11 @@
        id="rect849" />
   </defs>
   <sodipodi:namedview
+     inkscape:snap-nodes="false"
+     inkscape:object-nodes="false"
+     inkscape:snap-others="true"
+     inkscape:snap-grids="false"
+     inkscape:snap-to-guides="false"
      inkscape:window-maximized="0"
      inkscape:window-y="0"
      inkscape:window-x="53"
@@ -47,9 +52,9 @@
      fit-margin-bottom="0.1"
      fit-margin-left="0.1"
      fit-margin-top="0.1"
-     inkscape:snap-page="true"
-     inkscape:bbox-nodes="true"
-     inkscape:bbox-paths="true"
+     inkscape:snap-page="false"
+     inkscape:bbox-nodes="false"
+     inkscape:bbox-paths="false"
      inkscape:snap-bbox="true"
      inkscape:pagecheckerboard="true"
      units="in"
@@ -126,12 +131,12 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:Aldhabi;-inkscape-font-specification:Aldhabi;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="21.217085"
+       x="19.398081"
        y="37.508289"
        id="text857"><tspan
          sodipodi:role="line"
          id="tspan855"
-         x="21.217085"
+         x="19.398081"
          y="37.508289"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Aldhabi;-inkscape-font-specification:Aldhabi;stroke-width:0.264583">ACTION</tspan></text>
   </g>
