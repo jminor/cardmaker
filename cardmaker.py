@@ -37,14 +37,14 @@ templates = {}
 def load_template(template_name):
     path = os.path.join(args.templates, template_name) + ".svg"
     if not os.path.isfile(path):
-        print("ERROR: No template '{}' found here: {}".format(template_name, path))
+        print("ERROR: No template '{}' found at path: {}".format(template_name, path))
         sys.exit(1)
+    print("Loading template: {}".format(path))
     with open(path, "r", encoding='utf-8') as template_file:
         return template_file.read()
 
 def load_templates(templates_names):
     for template_name in templates_names:
-        print("Loading template {}...".format(template_name))
         template = load_template(template_name)
         templates[template_name] = template
 
@@ -103,26 +103,48 @@ def render_svg(input_path, output_path):
         sys.exit(status)
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Make playing card images from a CSV and template SVGs.")
-    parser.add_argument('--data', '-d', help='input CSV table containing card data', type=str, required=True)
-    parser.add_argument('--templates', '-t', help='folder containing template SVGs', default='.', type=str)
-    parser.add_argument('--output', '-o', help='output folder', type=str, required=True)
-    parser.add_argument('--inkscape', help='path to Inkscape executable', default=default_inkscape_path, type=str)
+    parser = argparse.ArgumentParser(
+        description="Make playing card images from a CSV and template SVGs."
+    )
+    parser.add_argument(
+        '--data', '-d',
+        help='input CSV table containing card data',
+        type=str, required=True
+    )
+    parser.add_argument(
+        '--templates', '-t',
+        help='folder containing template SVGs',
+        default='', type=str
+    )
+    parser.add_argument(
+        '--output', '-o',
+        help='output folder',
+        type=str, required=True
+    )
+    parser.add_argument(
+        '--inkscape',
+        help='path to Inkscape executable',
+        default=default_inkscape_path, type=str
+    )
     args = parser.parse_args()
 
     rows = read_table(args.data)
     
     load_templates(set([row['Template'] for row in rows]))
 
-    cards = OrderedDict()
+    card_names = set()
+    svg_paths = []
 
     for row in rows:
         name = row['Card Name']
         template = templates[row['Template']]
         copies = int(row['Copies'])
         
-        if name in cards:
+        if name in card_names:
             print("WARNING: Duplicate Card Name '{}' ignored.".format(name))
+            continue
+        else:
+            card_names.add(name)
 
         svg = fill_template(template, row)
         output_base = os.path.join(args.output, name)
