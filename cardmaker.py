@@ -84,23 +84,19 @@ def save_svg(svg, path):
     with open(path, "w", encoding='utf-8') as f:
         f.write(svg)
 
-def render_svg(input_path, output_path):
-    print("Rendering SVG: {} to: {}".format(input_path, output_path))
-    sys.stdout.flush()
-    status = subprocess.call(
-        [
-            args.inkscape,
-            input_path,
-            # "--export-width", output_width,
-            "--export-area-page",
-            "--export-filename", output_path
-        ],
-        stderr=subprocess.PIPE,
-        stdout=subprocess.PIPE
+def render_svgs(svg_paths):
+    # Render them all in a batch for speed
+    # The startup cost for Inkscape is pretty high...
+    cmd = [
+        args.inkscape,
+        "--export-area-page",
+        "--export-type=png"
+    ]
+    output = subprocess.check_call(
+        cmd + svg_paths,
+        stderr=subprocess.STDOUT
     )
-    if status:
-        print("ERROR: Rendering failed.")
-        sys.exit(status)
+    print(output)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -147,9 +143,19 @@ if __name__ == "__main__":
             card_names.add(name)
 
         svg = fill_template(template, row)
-        output_base = os.path.join(args.output, name)
-        svg_path = output_base+'.svg'
-        png_path = output_base+'.png'
+
+        svg_path = os.path.join(args.output, name) + '.svg'
         save_svg(svg, svg_path)
-        render_svg(svg_path, png_path)
+
+        svg_paths.append(svg_path)
+
+    print("Rendering SVG to PNG...")
+
+    # On Windows, we need to make sure our normal
+    # output is flushed, otherwise Inkscape's output
+    # appears before ours which is confusing...
+    sys.stdout.flush()
+    sys.stderr.flush()
+
+    render_svgs(svg_paths)
 
