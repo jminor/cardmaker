@@ -1,0 +1,47 @@
+Card Name,Template,Copies,Main Text,Subtext
+Setup,rules,1,"For 2+ players.
+
+1. Shuffle the deck.
+
+2. Deal 5 cards to each player, to form their hands.
+
+3. Place the rest, face down, on the table to form the draw pile.
+
+4. Players take turns clockwise around the table.",
+Turn Order,rules,1,"1. Draw the top card of the draw pile. Reshuffle the discard pile if needed.
+
+2. Play as many cards as you like from your hand.
+
+3. If you have more than 5 cards, discard down to 5.
+
+4. Play passes to the player on your left (clockwise).
+",
+Rules,rules,1,"ACTION cards have an effect, and then are discarded.
+
+THING cards are placed on the table, and stay in play.
+
+You win if a card says you win.
+",
+Important!,rules,1,"You may make up a new card, or change any card in play at any time (write on it) as long as ALL PLAYERS AGREE to the change.
+
+If any player objects, then the change does not take place.
+
+New cards are added to the discard pile, to be shuffled in when the draw pile runs out.",
+Back,back,1,Dvorak,Making it up as we go along
+ALL YOUR BASE ARE BELONG TO US,action,1,"If you control at least three Bases, and your opponents control none, you win the game.",
+Somebody set up us the bomb,action,1,Destroy a Base or a Zig.,
+We get signal,action,1,Draw two cards.,
+Main screen turn on,action,1,View an opponent's hand.,
+How are you gentlemen!,action,1,Gain control of a Base.,
+You are on the way to destruction,action,1,A chosen player destroys a Zig or a Base they control (their choice).,
+You have no chance to survive,action,1,A chosen player who controls no Zigs must discard two cards at random.,
+Make your time,action,1,An opponent must choose and discard a card.,
+Ha ha ha ha...,action,1,Play only if you've just destroyed a Zig or a Base. Draw two cards.,
+Take off every zig,action,1,"For each Zig you control, destroy a Base. (Including your own, if you have more Zigs than your opponent has Bases.)",
+You know what you doing,action,1,"Search through the draw pile for any 1 card, and put it into your hand.",
+Move zig,action,1,Give control of any Zig to any player.,
+For great justice,action,1,"Play only if you control more Zigs than any opponent. Destroy one of your Zigs, and that opponent discards their hand.",
+Base,thing,6,,
+Zig,thing,6,,
+ ,thing,6,,
+  ,action,6,,
