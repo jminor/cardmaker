@@ -39,7 +39,9 @@ To run CardMaker on the example, do this:
 % python ../cardmaker.py --data all_your_base.csv --output output/
 ```
 
-## How It Works
+*NOTE: Each time you run CardMaker, all of the output SVG and PNG images will be overwritten.*
+
+## Spreadsheet
 
 Your spreadsheet needs these columns:
 - Card Name
@@ -51,11 +53,19 @@ Each row in the spreadsheet will become a card output image.
 
 The `Card Name` field defines the output filename (with a `.png` or `.svg` extension added).
 
-The `Template` field determines which template SVG will be used for that card. You can use a single template for all your cards, or a different one for different types of cards. The example uses 4 templates for 4 types of outputs (rules, back, thing, action).
+The `Template` field determines which template SVG will be used for that card. You can use a single template for all your cards, or different ones for different types of cards. The example uses 4 templates for 4 types of outputs (rules, back, thing, action).
 
 The `Copies` field determines how many copies of the identical image will be produced when printed. (NOT IMPLEMENTED YET)
 
 Any other columns you include can be used to fill in the template SVG(s) you provide. If a column is not used in a template, it is ignored - so you can have loads of columns for other purposes.
+
+There are many excellent spreadsheet programs that support reading & writing CSV files:
+- [Google Sheets](https://sheets.google.com/)
+- [Microsoft Excel](https://www.microsoft.com/en-us/microsoft-365/excel)
+- [Apple Numbers](https://www.apple.com/numbers/)
+- [LibreOffice Calc](https://libreoffice.org/)
+
+You can also use a text editor like [Vim](https://www.vim.org/), [Visual Studio Code](https://code.visualstudio.com/), or whatever - just pay attention to your commas, and [CSV quoting syntax](https://en.wikipedia.org/wiki/Comma-separated_values).
 
 ## SVG Templates
 
@@ -79,11 +89,13 @@ Any column in your spreadsheet can be used anywhere in your template. This can i
 
 ## Symbols & Images
 
-You can use fonts with decorative symbols, like Wingdings, or Unicode symbols like these: ♠♥♦♣♔♕♖♗♘♙♚♛♜♝♞♟︎, any maybe even Emoji (untested). However, some Unicode symbols don't seem to work. Also your results may depend on which font or platform you are running on.
+You can use fonts with decorative symbols, like Wingdings, or Unicode symbols like these: ♠♥♦♣♔♕♖♗♘♙♚♛♜♝♞♟︎, and maybe even Emoji (untested). However, some Unicode symbols don't seem to work. Also your results may depend on which font or platform you are using.
 
 If you are looking for SVG icons, then these are excellent resources:
 - https://game-icons.net/
 - https://thenounproject.com/
+
+Images can be embedded in your SVG templates as well, but there is currently no support for replacing images. (See "Someday Mabye" below.)
 
 ## Text Layout: Long Text, Centering, etc.
 
@@ -91,7 +103,7 @@ CardMaker relies heavily on Inkscape's text formatting features for wrapping, al
 
 You can use paragraph alignment settings to align text to the left, right, or center.
 
-Long text will flow according to Inkscape's formatting rules. Use Inkscape's text tool, and adjust the size and position of the blue text flow bounds to control how text wraps. In some cases you may want to make the blue box extend past the edge of the card to avoid clipping.
+Long text will flow according to Inkscape's text layout rules. Use Inkscape's text tool, and adjust the size and position of the blue text flow bounds to control how text wraps. In some cases you may want to make the blue box extend past the edge of the card to avoid clipping.
 
 ## A Note About SVG Rendering
 
@@ -105,8 +117,9 @@ The output size and DPI are determined entirely by the template SVGs. CardMaker 
 
 Here are features that may someday be added. If you want to contribute to any of these features, pull requests are welcome :)
 
+- Support for bold, italic, underline, and strikethrough text styles in substitutied text.
 - Combining output images into grids for easy printing.
 - Toggle on/off SVG layers based on spreadsheet columns.
-- Nesting/instancing of templates within templates (for SVG symbols/icons, etc.)
+- Nesting/instancing of templates within templates (for SVG symbols/icons/images, etc.)
 - Recursive substitution (e.g. `{Body Text}` -> `{tap}: Add {red_mana} to your mana pool.` -> text with inline symbols)
 
