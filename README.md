@@ -95,7 +95,7 @@ If you are looking for SVG icons, then these are excellent resources:
 - https://game-icons.net/
 - https://thenounproject.com/
 
-Images can be embedded in your SVG templates as well, but there is currently no support for replacing images. (See "Someday Mabye" below.)
+Images can be embedded in your SVG templates as well, but there is currently no support for replacing images. (See "Someday Maybe" below.)
 
 ## Text Layout: Long Text, Centering, etc.
 
