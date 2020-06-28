@@ -51,11 +51,11 @@ Your spreadsheet needs these columns:
 
 Each row in the spreadsheet will become a card output image.
 
-The `Card Name` field defines the output filename (with a `.png` or `.svg` extension added).
+The `Card Name` column defines the output filename (with a `.png` or `.svg` extension added).
 
-The `Template` field determines which template SVG will be used for that card. You can use a single template for all your cards, or different ones for different types of cards. The example uses 4 templates for 4 types of outputs (rules, back, thing, action).
+The `Template` column determines which template SVG will be used for that card. You can use a single template for all your cards, or different ones for different types of cards. The example uses 4 templates for 4 types of outputs (rules, back, thing, action).
 
-The `Copies` field determines how many copies of the identical image will be produced when printed. (NOT IMPLEMENTED YET)
+The `Copies` column determines how many copies of the identical image will be produced when printed. (NOT IMPLEMENTED YET)
 
 Any other columns you include can be used to fill in the template SVG(s) you provide. If a column is not used in a template, it is ignored - so you can have loads of columns for other purposes.
 
@@ -73,15 +73,15 @@ The SVG templates that you provide will be filled in with text from each row in 
 
 Each SVG template defines it's own page size, so you can use different templates for large or small cards, tokens, whole boards, or even cut-n-fold dice.
 
-Text substitution is done with Python-style patterns like `{field}`.
+Text substitution is done with Python-style patterns like `{column}`.
 
 For example, you might have an SVG text element with `NAME: {Card Name}` in it. The `{Card Name}` portion will be replaced with each card's name, as listed in the spreadsheet.
 
-Custom fields can be used also. For example, a text field might have `{Type}`, `{Cost}`, and/or `{Flavor Text}` in it, and you could have columns in your spreadsheet called "Type", "Cost", and "Flavor Text" with different values for each card. You can use whatever column names you want, as long as the names match up exactly (including matching capitalization).
+Other columns can be used also. For example, a template might have `{Type}`, `{Cost}`, and/or `{Flavor Text}` in it, and you could have columns in your spreadsheet called "Type", "Cost", and "Flavor Text" with different values for each card. You can use whatever column names you want, as long as the names match up exactly (including matching capitalization).
 
 If the column names are long, you can also use positional substitution to refer to the columns by number, starting with `{0}` for the 1st column, and then `{1}`, `{2}`, etc.
 
-Substitution patterns can reference multiple fields, and include other text or punctuation. For example, you might have a template with `{ATT} / {DEF} {Bonus}` in it, and separate "ATT", "DEF", and "Bonus" columns in your spreadsheet.
+Substitution patterns can reference multiple columns, and include other text or punctuation. For example, you might have a template with `Combat: {ATT}/{DEF} {Bonus}` in it, and separate "ATT", "DEF", and "Bonus" columns in your spreadsheet.
 
 Numbers and strings can be formatted according to the formatting rules in [PEP 3101](https://www.python.org/dev/peps/pep-3101/)
 
