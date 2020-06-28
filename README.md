@@ -2,6 +2,22 @@
 
 A simple utility to make printable game cards from a CSV spreadsheet, and some template SVGs.
 
+## Requirements
+
+You will need these things:
+- A recent version of [Python](https://python.org/) (tested with 3.8, but any 3+ should work).
+- [Inkscape](https://inkscape.org/) (used for rendering SVG to PNG).
+- A Windows, Mac, or Linux computer (tested on Windows).
+
+## Installation
+
+To install CardMaker, you can [download a zip](https://github.com/jminor/cardmaker/archive/master.zip) or use git from the command line:
+
+```
+% git clone https://github.com/jminor/cardmaker.git
+% cd cardmaker
+```
+
 ## Example
 
 This repo includes a small example game called [All Your Base](http://www.dvorakgame.co.uk/index.php/All_Your_Base_deck) designed by [Kevan](http://www.dvorakgame.co.uk/index.php/User:Kevan) as part of the game [Dvorak](https://boardgamegeek.com/boardgame/9010/dvorak). That game is not part of this software, and may be subject to copyright.
@@ -13,12 +29,12 @@ Starting with [this spreadsheet](example/all_your_base.csv), and a couple of SVG
 
 (in [PNG](example/output/ALL%20YOUR%20BASE%20ARE%20BELONG%20TO%20US.png) and [SVG](example/output/ALL%20YOUR%20BASE%20ARE%20BELONG%20TO%20US.svg) formats)
 
-## Requirements
+To run CardMaker on the example, do this:
 
-You will need these things:
-- A recent version of [Python](https://python.org/) (tested with 3.8, but any 3+ should work).
-- [Inkscape](https://inkscape.org/) (used for rendering SVG to PNG).
-- A Windows, Mac, or Linux computer (tested on Windows).
+```
+% cd cardmaker/example
+% python ../cardmaker.py -d all_your_base.csv -o output/
+```
 
 ## How It Works
 
