@@ -16,6 +16,7 @@ To install CardMaker, you can [download a zip](https://github.com/jminor/cardmak
 ```
 % git clone https://github.com/jminor/cardmaker.git
 % cd cardmaker
+% python cardmaker.py --help
 ```
 
 ## Example
@@ -33,7 +34,7 @@ To run CardMaker on the example, do this:
 
 ```
 % cd cardmaker/example
-% python ../cardmaker.py -d all_your_base.csv -o output/
+% python ../cardmaker.py --data all_your_base.csv --output output/
 ```
 
 ## How It Works
