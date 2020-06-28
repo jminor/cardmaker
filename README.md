@@ -12,9 +12,9 @@ Starting with [this spreadsheet](example/all+your+base.csv), and a couple of SVG
 ## Requirements
 
 You will need these things:
-- A recent version of Python (tested with 3.8, but any 3+ should work).
-- Inkscape (used for rendering SVG to PNG).
-- A Windows, Mac, or Linux computer.
+- A recent version of [Python](https://python.org/) (tested with 3.8, but any 3+ should work).
+- [Inkscape](https://inkscape.org/) (used for rendering SVG to PNG).
+- A Windows, Mac, or Linux computer (tested on Windows).
 
 ## How It Works
 
