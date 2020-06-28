@@ -52,6 +52,10 @@ Numbers and strings can be formatted according to the formatting rules in [PEP 3
 
 Any column in your spreadsheet can be used anywhere in your template. This can include simple text strings, colors, sizes, snippets of SVG code, or whatever. Keep in mind, however, that if you are creating your SVG template in an application like Inkscape, you may be limited by where you can put strings like `{whatever}` by the editor you are using. If this is problematic, you can always hand-edit the template SVGs in a text editor, to place the substitution patterns where you want them (e.g. for colors, etc.)
 
+## A Note About SVG Rendering
+
+SVG is a very powerful and flexible format for Scalable Vector Graphics. There are many implementations of SVG rendering, many of which differ in some details. As such, you may notice that the SVG templates, and SVG output files look different in your browser than they do in Inkscape, or in other programs. If you want your cards to look perfect, then I suggest that you use Inkscape to make your template (since CardMaker uses it for rendering) and then use a high resolution PNG output for printing.
+
 ## Output Sizes, DPI, etc.
 
 The output size and DPI are determined entirely by the template SVGs. CardMaker uses Inkscape's page area to determine the output region.
