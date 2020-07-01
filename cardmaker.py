@@ -83,7 +83,7 @@ assert(actual == desired)
 
 def save_svg(svg, path):
     print("Saving SVG: {}".format(path))
-    with open(path, "w", encoding='utf-8') as f:
+    with open(path, "w", newline='\n', encoding='utf-8') as f:
         f.write(svg)
 
 def render_svgs(svg_paths):
