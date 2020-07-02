@@ -134,7 +134,7 @@ def save_gametable(cards, path):
         f.write(result)
 
 
-def render_svgs(svg_paths):
+def render_svgs(svg_paths, dpi=None):
     # Render them all in a batch for speed
     # The startup cost for Inkscape is pretty high...
     cmd = [
@@ -142,6 +142,8 @@ def render_svgs(svg_paths):
         "--export-area-page",
         "--export-type=png"
     ]
+    if dpi:
+        cmd.append("--export-dpi={}".format(dpi))
     output = subprocess.check_call(
         cmd + svg_paths,
         stderr=subprocess.STDOUT
@@ -171,6 +173,11 @@ if __name__ == "__main__":
         '--inkscape',
         help='path to Inkscape executable',
         default=default_inkscape_path, type=str
+    )
+    parser.add_argument(
+        '--dpi',
+        help='override Inkscape\'s default rendering dots-per-inch (usually 96 dpi)',
+        type=int
     )
     parser.add_argument(
         '--gametable',
@@ -229,7 +236,7 @@ if __name__ == "__main__":
     sys.stdout.flush()
     sys.stderr.flush()
 
-    render_svgs(svg_paths)
+    render_svgs(svg_paths, args.dpi)
 
     if args.gametable:
         save_gametable(cards, args.gametable)

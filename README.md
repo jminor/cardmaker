@@ -111,7 +111,9 @@ SVG is a very powerful and flexible format for Scalable Vector Graphics. There a
 
 ## Output Sizes, DPI, etc.
 
-The output size and DPI are determined entirely by the template SVGs. CardMaker uses Inkscape's page area to determine the output region.
+The output size and DPI are determined by the template SVGs. CardMaker uses Inkscape's page area to determine the output region.
+
+You can override the default dots-per-inch (DPI) with the `--dpi` command line argument. (The default is usually 96 dpi.) When cardmaker runs, it will print the exported resolution of each image to the console.
 
 ## Someday Maybe
 
