@@ -86,6 +86,54 @@ def save_svg(svg, path):
     with open(path, "w", newline='\n', encoding='utf-8') as f:
         f.write(svg)
 
+def save_gametable(cards, path):
+    output = """
+{{
+    cards = {{
+{}
+    }},
+    interaction_options = {{}}
+}}
+"""
+    halo = cards.get("Halo")
+    halo_img = None
+    if halo:
+        halo_img = halo["svg_path"].replace(".svg",".png")
+    back = cards.get("Back")
+    back_img = None
+    if back:
+        back_img = back["svg_path"].replace(".svg",".png")
+    card_specs = []
+    x,y,z = 0,0,0
+    for card in cards.values():
+        if card["name"] in ("Back", "Halo"):
+            continue
+        img = card["svg_path"].replace(".svg",".png")
+        card_spec = """
+        ["{}"] = {{
+            id = "{}",
+            img = "http:{}",
+            back_img = "http:{}",
+            halo_img = "http:{}",
+            pos = vec3({},{},{}),
+            rotation = 0,
+            scale = 1,
+            facing_up = true
+        }}""".format(
+            card["id"],
+            card["id"],
+            img,
+            back_img,
+            halo_img,
+            x,y,z
+        )
+        card_specs.append(card_spec)
+        z+=1
+    result = output.format(",\n".join(card_specs))
+    with open(path, "w", newline='\n', encoding='utf-8') as f:
+        f.write(result)
+
+
 def render_svgs(svg_paths):
     # Render them all in a batch for speed
     # The startup cost for Inkscape is pretty high...
@@ -124,6 +172,11 @@ if __name__ == "__main__":
         help='path to Inkscape executable',
         default=default_inkscape_path, type=str
     )
+    parser.add_argument(
+        '--gametable',
+        help='output a GameTable .lua file',
+        type=str
+    )
     args = parser.parse_args()
 
     rows = read_table(args.data)
@@ -132,6 +185,8 @@ if __name__ == "__main__":
 
     card_names = set()
     svg_paths = []
+
+    cards = {}
 
     for row in rows:
         name = row['Card Name']
@@ -151,12 +206,20 @@ if __name__ == "__main__":
                 copy_number = ""
             else:
                 copy_number = "_{}".format(index+1)
-            svg_path = "{}{}.svg".format(
-                os.path.join(args.output, name),
+
+            id = "{}{}".format(
+                name,
                 copy_number
             )
+            svg_path = os.path.join(args.output, id+".svg")
             save_svg(svg, svg_path)
             svg_paths.append(svg_path)
+            cards[id] = {
+                "id": id,
+                "name": name,
+                "row": row,
+                "svg_path": svg_path
+            }
 
     print("Rendering SVG to PNG...")
 
@@ -168,3 +231,5 @@ if __name__ == "__main__":
 
     render_svgs(svg_paths)
 
+    if args.gametable:
+        save_gametable(cards, args.gametable)
