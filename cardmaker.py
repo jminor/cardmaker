@@ -184,6 +184,11 @@ if __name__ == "__main__":
         help='output a GameTable .lua file',
         type=str
     )
+    parser.add_argument(
+        '--norender',
+        help="don't render PNGs",
+        action='store_true'
+    )
     args = parser.parse_args()
 
     rows = read_table(args.data)
@@ -228,6 +233,7 @@ if __name__ == "__main__":
                 "svg_path": svg_path
             }
 
+    if not args.norender:
     print("Rendering SVG to PNG...")
 
     # On Windows, we need to make sure our normal
