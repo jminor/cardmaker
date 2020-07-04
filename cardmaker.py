@@ -8,6 +8,7 @@ import csv
 import os
 import sys
 from xml.sax.saxutils import escape, unescape
+import xml.etree.ElementTree as et
 from collections import OrderedDict
 
 default_inkscape_paths = [
@@ -80,6 +81,41 @@ desired = "test name of test the value1 template test system value2"
 if actual != desired:
     print(actual)
 assert(actual == desired)
+
+def toggle_layers(svg_string, layer_specs):
+    layers_to_show = set()
+    layers_to_hide = set()
+    for spec in layer_specs.split(','):
+        action = spec[0]
+        layer = spec[1:]
+        if action == '+':
+            layers_to_show.add(layer)
+        elif action == '-':
+            layers_to_hide.add(layer)
+        else:
+            raise Exception("Unrecognized layer action: {}".format(spec))
+
+    root = et.fromstring(svg_string)
+    found = False
+    # This finds ALL <g> elemnts:
+    # for g in root.iter('{http://www.w3.org/2000/svg}g'):
+    # This finds just the <g> elements that are Inkscape layers:
+    for g in root.findall(".//{http://www.w3.org/2000/svg}g[@{http://www.inkscape.org/namespaces/inkscape}groupmode='layer']"):
+        # Get the Inkscape layer name:
+        label = g.get('{http://www.inkscape.org/namespaces/inkscape}label')
+        if label in layers_to_show:
+            # print("Showing {}".format(label))
+            g.set('style', 'display:inline')
+            found = True
+        if label in layers_to_hide:
+            # print("Hiding {}".format(label))
+            g.set('style', 'display:none')
+            found = True
+    
+    if not found:
+        print("WARNING: Layer spec '{}' didn't find any layers?".format(layer_specs))
+
+    return et.tostring(root, encoding="unicode")
 
 def save_svg(svg, path):
     print("Saving SVG: {}".format(path))
@@ -204,6 +240,7 @@ if __name__ == "__main__":
         name = row['Card Name']
         template = templates[row['Template']]
         copies = int(row['Copies'])
+        layer_specs = row.get("Layers")
         
         if name in card_names:
             print("WARNING: Duplicate Card Name '{}' ignored.".format(name))
@@ -212,6 +249,8 @@ if __name__ == "__main__":
             card_names.add(name)
 
         svg = fill_template(template, row)
+        if layer_specs:
+            svg = toggle_layers(svg, layer_specs)
 
         for index in range(copies):
             if copies == 1:
@@ -234,15 +273,15 @@ if __name__ == "__main__":
             }
 
     if not args.norender:
-    print("Rendering SVG to PNG...")
+        print("Rendering SVG to PNG...")
 
-    # On Windows, we need to make sure our normal
-    # output is flushed, otherwise Inkscape's output
-    # appears before ours which is confusing...
-    sys.stdout.flush()
-    sys.stderr.flush()
+        # On Windows, we need to make sure our normal
+        # output is flushed, otherwise Inkscape's output
+        # appears before ours which is confusing...
+        sys.stdout.flush()
+        sys.stderr.flush()
 
-    render_svgs(svg_paths, args.dpi)
+        render_svgs(svg_paths, args.dpi)
 
     if args.gametable:
         save_gametable(cards, args.gametable)

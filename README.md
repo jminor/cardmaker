@@ -87,6 +87,31 @@ Numbers and strings can be formatted according to the formatting rules in [PEP 3
 
 Any column in your spreadsheet can be used anywhere in your template. This can include simple text strings, colors, sizes, snippets of SVG code, or whatever. Keep in mind, however, that if you are creating your SVG template in an application like Inkscape, you may be limited by where you can put strings like `{whatever}` by the editor you are using. If this is problematic, you can always hand-edit the template SVGs in a text editor, to place the substitution patterns where you want them (e.g. for colors, etc.)
 
+## Layers
+
+You can make layers in your SVG Template that are shown or hidden based on an optional `Layers` column in your spreadsheet. This lets you toggle on/off overlays, logos, borders, or other elements in a single template instead of making several separate templates.
+
+For this to work, you need to assign a name to each layer in Inkscape. For example:
+- Border
+- Bonus Icon (hidden)
+- Main Text
+- Underlay Image 1
+- Underlay Image 2 (hidden)
+- Large Logo (hidden)
+- Background
+
+The value in the `Layers` column must be a comma separated list of layer names, each with a `+` or `-` prefix indicating whether the layer should be made visible (`+`) or hidden (`-`).
+
+For example:
+- `+Bonus Icon`
+- `-Underlay Image 1,+Underlay Image 2`
+- `+Bonus Icon,+Underlay Image 2,-Underlay Image 1`
+- `-Main Text,-Underlay Image 1,+Large Logo`
+
+Note that the default visibility of each layer is important, since the `Layers` column will only turn on/off the layers mentioned. All other layers will be left as-is.
+
+Also note, that the names of the layers much match exactly, including spaces and capitalization.
+
 ## Symbols & Images
 
 You can use fonts with decorative symbols, like Wingdings, or Unicode symbols like these: ♠♥♦♣, ♔♕♖♗♘♙, and even emoji 😃😭😈🍜 (see: [Symbol Test](example/output/Symbol%20Test.png)). However, they will all be a single color, and your results may depend on which font or platform you are using.
@@ -95,7 +120,7 @@ If you are looking for SVG icons, then these are excellent resources:
 - https://game-icons.net/
 - https://thenounproject.com/
 
-Images can be embedded in your SVG templates as well, but there is currently no support for replacing images. (See "Someday Maybe" below.)
+Images can be embedded in your SVG templates as well, but there is currently no support for replacing images, except via the Layer mechanism mentioned above. (See also the "Someday Maybe" below.)
 
 ## Text Layout: Long Text, Centering, etc.
 
@@ -125,7 +150,6 @@ Here are features that may someday be added. If you want to contribute to any of
 
 - Support for bold, italic, underline, and strikethrough text styles in substitutied text.
 - Combining output images into grids for easy printing.
-- Toggle on/off SVG layers based on spreadsheet columns.
 - Nesting/instancing of templates within templates (for SVG symbols/icons/images, etc.)
 - Recursive substitution (e.g. `{Body Text}` -> `{tap}: Add {red_mana} to your mana pool.` -> text with inline symbols)
 - These could be helpful for several of the features above:
