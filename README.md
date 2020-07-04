@@ -107,7 +107,11 @@ Long text will flow according to Inkscape's text layout rules. Use Inkscape's te
 
 ## A Note About SVG Rendering
 
-SVG is a very powerful and flexible format for Scalable Vector Graphics. There are many implementations of SVG rendering, many of which differ in some details. As such, you may notice that the SVG templates, and SVG output files look different in your browser than they do in Inkscape, or in other programs. If you want your cards to look perfect, then I suggest that you use Inkscape to make your template (since CardMaker uses it for rendering) and then use a high resolution PNG output for printing.
+SVG is a very powerful and flexible format for Scalable Vector Graphics. There are many implementations of SVG rendering, many of which differ in some details.
+
+As such, you may notice that the SVG templates, and SVG output files look different in your browser than they do in Inkscape, or in other programs. You may even notice differences with Inkscape on Mac vs Windows. This is especially true for multi-line wrapped text and/or font availability.
+
+If you want your cards to look perfect, then I suggest that you use Inkscape to make your template (since CardMaker uses it for rendering) and then use a high resolution PNG output for printing.
 
 ## Output Sizes, DPI, etc.
 
@@ -124,4 +128,7 @@ Here are features that may someday be added. If you want to contribute to any of
 - Toggle on/off SVG layers based on spreadsheet columns.
 - Nesting/instancing of templates within templates (for SVG symbols/icons/images, etc.)
 - Recursive substitution (e.g. `{Body Text}` -> `{tap}: Add {red_mana} to your mana pool.` -> text with inline symbols)
-
+- These could be helpful for several of the features above:
+  - https://github.com/astraw/svg_stack
+  - https://github.com/btel/svg_utils
+  - https://github.com/CrazyPython/svgmanip
