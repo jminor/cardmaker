@@ -170,6 +170,20 @@ def save_gametable(cards, path):
         f.write(result)
 
 
+def render_svg_batches(svg_paths, batch_size, dpi=None):
+    # Inkscape will run out of memory if we do
+    # too many at once, so do them in batches.
+    batches = [
+        svg_paths[i:i + batch_size] for i in range(
+            0,
+            len(svg_paths),
+            batch_size
+        )
+    ]
+
+    for batch in batches:
+        render_svgs(batch, dpi=dpi)
+
 def render_svgs(svg_paths, dpi=None):
     # Render them all in a batch for speed
     # The startup cost for Inkscape is pretty high...
@@ -225,6 +239,12 @@ if __name__ == "__main__":
         help="don't render PNGs",
         action='store_true'
     )
+    parser.add_argument(
+        '--batch_size',
+        help='render PNGs in batches (default 20)',
+        default=20,
+        type=int
+    )
     args = parser.parse_args()
 
     rows = read_table(args.data)
@@ -273,7 +293,10 @@ if __name__ == "__main__":
             }
 
     if not args.norender:
-        print("Rendering SVG to PNG...")
+        print("Rendering {} SVGs to PNG (in batches of {})...".format(
+            len(svg_paths),
+            args.batch_size
+        ))
 
         # On Windows, we need to make sure our normal
         # output is flushed, otherwise Inkscape's output
@@ -281,7 +304,7 @@ if __name__ == "__main__":
         sys.stdout.flush()
         sys.stderr.flush()
 
-        render_svgs(svg_paths, args.dpi)
+        render_svg_batches(svg_paths, args.batch_size, args.dpi)
 
     if args.gametable:
         save_gametable(cards, args.gametable)
