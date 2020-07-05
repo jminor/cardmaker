@@ -131,19 +131,24 @@ def save_gametable(cards, path):
     interaction_options = {{}}
 }}
 """
-    halo = cards.get("Halo")
-    halo_img = None
-    if halo:
-        halo_img = halo["svg_path"].replace(".svg",".png")
-    back = cards.get("Back")
-    back_img = None
-    if back:
-        back_img = back["svg_path"].replace(".svg",".png")
     card_specs = []
     x,y,z = 0,0,0
     for card in cards.values():
         if card["name"] in ("Back", "Halo"):
             continue
+        if card["row"].get("Skip"):
+            continue
+
+        back = cards.get(card["row"].get("Back","Back"))
+        back_img = None
+        if back:
+            back_img = back["svg_path"].replace(".svg",".png")
+
+        halo = cards.get(card["row"].get("Halo","Halo"))
+        halo_img = None
+        if halo:
+            halo_img = halo["svg_path"].replace(".svg",".png")
+
         img = card["svg_path"].replace(".svg",".png")
         card_spec = """
         ["{}"] = {{
