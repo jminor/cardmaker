@@ -4,6 +4,11 @@ A simple utility to make printable game cards from a [CSV](https://en.wikipedia.
 
 This is meant for quickly prototyping game components (cards, tokens, etc.) when designing tabletop games.
 
+Here are some samples that illustate what CardMaker can produce:
+
+![Sample Image 1](samples/Apollo%209.png)
+![Sample Image 2](samples/55.png)
+
 ## Requirements
 
 You will need these things:
