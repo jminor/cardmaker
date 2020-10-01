@@ -1,6 +1,6 @@
 # CardMaker
 
-A simple utility to make printable game cards from a CSV spreadsheet, and some template SVGs.
+A simple utility to make printable game cards from a [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) spreadsheet, and some template SVGs.
 
 This is meant for quickly prototyping game components (cards, tokens, etc.) when designing tabletop games.
 
@@ -43,10 +43,13 @@ To run CardMaker on the example, do this:
 
 ## Spreadsheet
 
+CardMaker reads card data from a [Comma-Separated Values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) spreadsheet.
+
 Your spreadsheet needs these columns:
 - Card Name
 - Template
 - Copies
+- Layers (optional)
 - (Plus any other columns you want)
 
 Each row in the spreadsheet will become a card output image.
@@ -56,6 +59,8 @@ The `Card Name` column defines the output filename (with a `.png` or `.svg` exte
 The `Template` column determines which template SVG will be used for that card. You can use a single template for all your cards, or different ones for different types of cards. The example uses 4 templates for 4 types of outputs (rules, back, thing, action).
 
 The `Copies` column determines how many copies of the identical image will be produced when printed. If more than one copy is output, duplicates will have `_2`, `_3`, etc. appended to their filename.
+
+For details on the optional `Layers` column, see the [Layers](#Layers) section below.
 
 Any other columns you include can be used to fill in the template SVG(s) you provide. If a column is not used in a template, it is ignored - so you can have loads of columns for other purposes.
 
@@ -68,6 +73,10 @@ There are many excellent spreadsheet programs that support reading & writing CSV
 You can also use a text editor like [Vim](https://www.vim.org/), [Visual Studio Code](https://code.visualstudio.com/), or whatever - just pay attention to your commas, and [CSV quoting syntax](https://en.wikipedia.org/wiki/Comma-separated_values).
 
 ## SVG Templates
+
+CardMaker reads card templates from [Scalable Vector Graphics (SVG)](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) files.
+
+CardMaker works best with SVG templates created in the free, Open Source, vector design program [Inkscape](https://inkscape.org/).
 
 The SVG templates that you provide will be filled in with text from each row in your spreadsheet, and then rendered into output SVG and PNG files.
 
