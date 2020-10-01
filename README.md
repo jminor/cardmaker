@@ -1,6 +1,6 @@
 # CardMaker
 
-A simple utility to make printable game cards from a [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) spreadsheet, and some template SVGs.
+A simple utility to make printable game cards from a [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) spreadsheet, and some template [SVGs](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics).
 
 This is meant for quickly prototyping game components (cards, tokens, etc.) when designing tabletop games.
 
