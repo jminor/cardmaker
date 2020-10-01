@@ -176,10 +176,14 @@ Here are features that may someday be added. If you want to contribute to any of
   - https://github.com/astraw/svg_stack
   - https://github.com/btel/svg_utils
   - https://github.com/CrazyPython/svgmanip
-- Support for Affinity Designer
+- Support for [Affinity Designer](https://affinity.serif.com/en-us/designer/)
   - Experiments show that Affinity Designer's SVG support is not robust enough.
   - Exporting and re-importing an SVG results in many unwanted changes.
   - Text placement, alignment, etc. are messed up.
   - Affinity Designer has no batch or command line features.
   - Affinity Photo does have a batch feature, and could be used for rendering.
   - File format for sfdesigner files is unknown/proprietary.
+- Support for [Sketch](https://www.sketch.com)
+  - Documented file format: https://developer.sketch.com/file-format/
+  - Documented command line tool for rendering: https://developer.sketch.com/cli/
+
