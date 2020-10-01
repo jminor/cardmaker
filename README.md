@@ -9,7 +9,7 @@ This is meant for quickly prototyping game components (cards, tokens, etc.) when
 You will need these things:
 - A recent version of [Python](https://python.org/) (tested with 3.8, but any 3+ should work).
 - [Inkscape](https://inkscape.org/) (used for rendering SVG to PNG).
-- A Windows, Mac, or Linux computer (tested on Windows).
+- A Windows, Mac, or Linux computer (tested on Mac and Windows).
 
 ## Installation
 
@@ -18,7 +18,7 @@ To install CardMaker, you can [download a zip](https://github.com/jminor/cardmak
 ```
 % git clone https://github.com/jminor/cardmaker.git
 % cd cardmaker
-% python cardmaker.py --help
+% python3 cardmaker.py --help
 ```
 
 ## Example
@@ -36,7 +36,7 @@ To run CardMaker on the example, do this:
 
 ```
 % cd cardmaker/example
-% python ../cardmaker.py --data all_your_base.csv --output output/
+% python3 ../cardmaker.py --data all_your_base.csv --output output/
 ```
 
 *NOTE: Each time you run CardMaker, all of the output SVG and PNG images will be overwritten.*
