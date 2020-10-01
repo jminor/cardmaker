@@ -64,11 +64,29 @@ def read_table(path):
     rows = [OrderedDict(zip(header, prep(row))) for row in data[1:]]
     return rows
 
-def fill_template(template, row):
+def replace_variables(template, row):
     return template.format(*row.values(), **row)
 
+def fill_template(template, row):
+    root = et.fromstring(template)
+    # Look for ANY element with an id='{foo}'
+    for g in root.iter():
+        for key in (
+            "id",
+            "{http://www.serif.com/}id"
+        ):
+            idval = g.get(key, "")
+            m = re.match(r"\{(.*)\}", idval)
+            if m:
+                var = m.group(1)
+                val = row.get(var)
+                g.text = val
+                g.set(key, var)
+    result = et.tostring(root, encoding="unicode")
+    return replace_variables(result, row)
+
 actual = fill_template(
-    "test {0} of {1} the {thing} template {1} system {buzz}",
+    "<g>test {0} of {1} the {thing} template {1} system {buzz}</g>",
     OrderedDict([
         ("Card Name", "name"),
         ("Template", "test"),
@@ -77,9 +95,22 @@ actual = fill_template(
         ("unused", "value3")
     ])
 )
-desired = "test name of test the value1 template test system value2"
+desired = "<g>test name of test the value1 template test system value2</g>"
 if actual != desired:
     print(actual)
+    print(desired)
+assert(actual == desired)
+
+actual = fill_template(
+    '<text id="{Card Name}">Placeholder</text>',
+    OrderedDict([
+        ("Card Name", "name")
+    ])
+)
+desired = '<text id="Card Name">name</text>'
+if actual != desired:
+    print(actual)
+    print(desired)
 assert(actual == desired)
 
 def toggle_layers(svg_string, layer_specs):

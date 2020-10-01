@@ -84,7 +84,13 @@ Each SVG template defines it's own page size, so you can use different templates
 
 Text substitution is done with Python-style patterns like `{column}`.
 
+Substitutions present in the content of a text element will be replaced.
+In addition, text elements with an substitution patterns in their `id` will have
+their content replaced.
+
 For example, you might have an SVG text element with `NAME: {Card Name}` in it. The `{Card Name}` portion will be replaced with each card's name, as listed in the spreadsheet.
+
+As a second example, you might have an SVG text elemnt with `A Long Example Name` in it, and an `id` of `{Card Name}`. The content of the text element will be replaced with each card's name, as listed in the spreadsheet. This can be helpful when you have long column names in short text elements, or vice versa.
 
 Other columns can be used also. For example, a template might have `{Type}`, `{Cost}`, and/or `{Flavor Text}` in it, and you could have columns in your spreadsheet called "Type", "Cost", and "Flavor Text" with different values for each card. You can use whatever column names you want, as long as the names match up exactly (including matching capitalization).
 
