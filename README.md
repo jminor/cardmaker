@@ -9,6 +9,14 @@ Here are some samples that illustate what CardMaker can produce:
 ![Sample Image 1](samples/Apollo%209.png)
 ![Sample Image 2](samples/55.png)
 
+## Similar Tools
+
+Since making this project, I have discovered several other similar tools. You may want to consider comparing them to see which best suits your needs.
+- Geckos: http://gulix.github.io/geckos
+- CardPen: http://cardpen.mcdemarco.net/doc
+- nhmkdev's cardmaker: https://github.com/nhmkdev/cardmaker
+- pycard: https://github.com/ghostsquad/pycard
+
 ## Requirements
 
 You will need these things:
@@ -168,6 +176,11 @@ You can override the default dots-per-inch (DPI) with the `--dpi` command line a
 
 Here are features that may someday be added. If you want to contribute to any of these features, pull requests are welcome :)
 
+- Find a better tool than Inkscape.
+  - While Inkscape is quite powerful, it suffers from quite a few usability issues which make it very frustrating to use.
+- Find something better than SVG.
+  - SVG lacks robust text wrapping features.
+  - SVG lacks many visual effects that would be very helpful.
 - Support for bold, italic, underline, and strikethrough text styles in substitutied text.
 - Combining output images into grids for easy printing.
 - Nesting/instancing of templates within templates (for SVG symbols/icons/images, etc.)
@@ -186,4 +199,6 @@ Here are features that may someday be added. If you want to contribute to any of
 - Support for [Sketch](https://www.sketch.com)
   - Documented file format: https://developer.sketch.com/file-format/
   - Documented command line tool for rendering: https://developer.sketch.com/cli/
+  - Sketch has limited visual effects, compared to Affinity Designer.
+
 
